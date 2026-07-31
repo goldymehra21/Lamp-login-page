@@ -1,58 +1,66 @@
-// Lamp Login Animation
-// Goldy Mehra
+// ===============================
+// Table Lamp Login
+// js/script.js
+// ===============================
 
-const body = document.body;
-const chain = document.getElementById("chain");
+const room = document.querySelector(".room");
+const switchBtn = document.getElementById("switchBtn");
+const loginCard = document.getElementById("loginCard");
 
 let lightOn = false;
 
-chain.addEventListener("click", () => {
+// Toggle light
+switchBtn.addEventListener("click", () => {
 
-    // Toggle light
     lightOn = !lightOn;
 
-    if(lightOn){
+    if (lightOn) {
 
-        body.classList.add("light-on");
+        room.classList.add("light-on");
 
-    }else{
+        // Small pull animation
+        switchBtn.animate(
+            [
+                { transform: "translateY(0px)" },
+                { transform: "translateY(18px)" },
+                { transform: "translateY(0px)" }
+            ],
+            {
+                duration: 250,
+                easing: "ease-out"
+            }
+        );
 
-        body.classList.remove("light-on");
+        // Show login form after light turns on
+        setTimeout(() => {
+            loginCard.classList.add("show");
+        }, 350);
 
+    } else {
+
+        room.classList.remove("light-on");
+
+        switchBtn.animate(
+            [
+                { transform: "translateY(0px)" },
+                { transform: "translateY(18px)" },
+                { transform: "translateY(0px)" }
+            ],
+            {
+                duration: 250,
+                easing: "ease-out"
+            }
+        );
+
+        // Hide login form
+        loginCard.classList.remove("show");
     }
 
 });
 
-// Pull chain animation
+// Prevent form submission (demo page)
+document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-chain.addEventListener("mousedown",()=>{
-
-    chain.style.transform="translateY(15px)";
-
-});
-
-chain.addEventListener("mouseup",()=>{
-
-    chain.style.transform="translateY(0px)";
-
-});
-
-chain.addEventListener("mouseleave",()=>{
-
-    chain.style.transform="translateY(0px)";
-
-});
-
-// Mobile Touch Support
-
-chain.addEventListener("touchstart",()=>{
-
-    chain.style.transform="translateY(15px)";
-
-});
-
-chain.addEventListener("touchend",()=>{
-
-    chain.style.transform="translateY(0px)";
-
+    alert("Login functionality can be connected to your backend.");
 });
