@@ -1,5 +1,7 @@
-const lamp = document.getElementById("lamp");
+document.addEventListener("DOMContentLoaded", function () {
+    const lamp = document.getElementById("lamp");
 
-lamp.addEventListener("click", () => {
-    document.body.classList.toggle("light-off");
+    lamp.addEventListener("click", function () {
+        document.body.classList.toggle("light-off");
+    });
 });
