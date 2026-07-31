@@ -1,66 +1,63 @@
-// ===============================
-// Table Lamp Login
+//====================================
+// Lamp Login Animation
 // js/script.js
-// ===============================
+//====================================
 
-const room = document.querySelector(".room");
-const switchBtn = document.getElementById("switchBtn");
+const container = document.querySelector(".container");
+const lampSwitch = document.getElementById("switch");
 const loginCard = document.getElementById("loginCard");
 
-let lightOn = false;
+let lampOn = false;
 
-// Toggle light
-switchBtn.addEventListener("click", () => {
+// Toggle lamp
+lampSwitch.addEventListener("click", () => {
 
-    lightOn = !lightOn;
+    lampOn = !lampOn;
 
-    if (lightOn) {
-
-        room.classList.add("light-on");
-
-        // Small pull animation
-        switchBtn.animate(
-            [
-                { transform: "translateY(0px)" },
-                { transform: "translateY(18px)" },
-                { transform: "translateY(0px)" }
-            ],
+    // Pull cord animation
+    lampSwitch.animate(
+        [
             {
-                duration: 250,
-                easing: "ease-out"
+                transform: "translateY(0)"
+            },
+            {
+                transform: "translateY(20px)"
+            },
+            {
+                transform: "translateY(0)"
             }
-        );
+        ],
+        {
+            duration: 250,
+            easing: "ease-in-out"
+        }
+    );
 
-        // Show login form after light turns on
+    if (lampOn) {
+
+        container.classList.add("on");
+
         setTimeout(() => {
+
             loginCard.classList.add("show");
-        }, 350);
+
+        }, 300);
 
     } else {
 
-        room.classList.remove("light-on");
+        container.classList.remove("on");
 
-        switchBtn.animate(
-            [
-                { transform: "translateY(0px)" },
-                { transform: "translateY(18px)" },
-                { transform: "translateY(0px)" }
-            ],
-            {
-                duration: 250,
-                easing: "ease-out"
-            }
-        );
-
-        // Hide login form
         loginCard.classList.remove("show");
+
     }
 
 });
 
-// Prevent form submission (demo page)
-document.querySelector("form").addEventListener("submit", function (e) {
+// Prevent page refresh
+document.querySelector("form").addEventListener("submit", function(e){
+
     e.preventDefault();
 
-    alert("Login functionality can be connected to your backend.");
+    alert("Login Successful!");
+
 });
