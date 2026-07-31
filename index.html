@@ -1,65 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lamp Login</title>
+    <title>Table Lamp Login</title>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- Dark Overlay -->
-    <div class="darkness"></div>
+<div class="room">
 
-    <!-- Lamp -->
-    <div class="lamp-area">
+    <!-- Light Glow -->
+    <div class="light-glow"></div>
 
-        <div class="wire"></div>
+    <!-- Lamp Area -->
+    <div class="lamp-side">
 
         <div class="lamp">
-            <div class="light"></div>
-        </div>
 
-        <!-- Pull Chain -->
-        <div class="chain" id="chain">
-            <div class="rope"></div>
-            <div class="ring"></div>
+            <div class="lamp-head"></div>
+
+            <div class="lamp-neck"></div>
+
+            <div class="lamp-base"></div>
+
+            <!-- Pull Cord -->
+            <div class="cord">
+                <div class="rope"></div>
+                <div class="knob" id="switchBtn"></div>
+            </div>
+
         </div>
 
     </div>
 
-    <!-- Login Card -->
-    <div class="login-box" id="loginBox">
+    <!-- Login -->
+    <div class="login-side">
 
-        <h1>Welcome Back</h1>
+        <div class="login-card" id="loginCard">
 
-        <p>Sign in to continue</p>
+            <h1>Welcome</h1>
 
-        <form>
+            <p>Turn on the lamp to continue</p>
 
-            <input
-                type="text"
-                placeholder="Username"
-                required
-            >
+            <form>
 
-            <input
-                type="password"
-                placeholder="Password"
-                required
-            >
+                <div class="input-group">
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        required>
+                </div>
 
-            <button type="submit">
-                Login
-            </button>
+                <div class="input-group">
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        required>
+                </div>
 
-        </form>
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+        </div>
 
     </div>
 
-    <script src="js/script.js"></script>
+</div>
+
+<script src="js/script.js"></script>
 
 </body>
 </html>
