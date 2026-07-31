@@ -1,301 +1,327 @@
-/* RESET */
+/* ========= RESET ========= */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-    width:100%;
-    height:100vh;
+    font-family:'Poppins',sans-serif;
     overflow:hidden;
     background:#050505;
+}
+
+/* ========= ROOM ========= */
+
+.room{
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:6vw;
+    position:relative;
+    background:
+        radial-gradient(circle at top,#141414,#050505 70%);
+}
+
+/* ========= LIGHT ========= */
+
+.light-glow{
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    left:-60px;
+    top:-120px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,220,150,.75)0%,
+    rgba(255,215,120,.35)25%,
+    rgba(255,200,90,.15)45%,
+    transparent 70%);
+
+    opacity:0;
+
+    transition:1s;
+    pointer-events:none;
+}
+
+/* ========= LAMP ========= */
+
+.lamp-side{
+    width:40%;
+    height:100%;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    position:relative;
+}
+
+.lamp{
+    position:relative;
+    width:220px;
+    height:500px;
+}
+
+/* Shade */
+
+.lamp-head{
+
+    width:170px;
+    height:90px;
+
+    background:linear-gradient(#ddd,#888);
+
+    margin:auto;
+
+    clip-path:polygon(15% 0,85% 0,100% 100%,0 100%);
+
+    border-radius:10px;
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+/* Pole */
+
+.lamp-neck{
+
+    width:10px;
+    height:240px;
+
+    background:#777;
+
+    margin:auto;
+}
+
+/* Base */
+
+.lamp-base{
+
+    width:150px;
+    height:28px;
+
+    background:linear-gradient(#888,#555);
+
+    margin:auto;
+
+    border-radius:60px;
+}
+
+/* ========= CORD ========= */
+
+.cord{
+
+    position:absolute;
+
+    left:118px;
+    top:78px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.rope{
+
+    width:2px;
+    height:165px;
+
+    background:#d8d8d8;
+}
+
+.knob{
+
+    width:22px;
+    height:22px;
+
+    background:#ddd;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.knob:hover{
+
+    transform:scale(1.15);
+}
+
+/* ========= LOGIN ========= */
+
+.login-side{
+
+    width:45%;
+
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
-/* DARK OVERLAY */
+.login-card{
 
-.darkness{
-    position:fixed;
-    inset:0;
-    background:#000;
-    opacity:.96;
-    transition:1s;
-    z-index:2;
-}
+    width:380px;
 
-/* LAMP */
+    padding:45px;
 
-.lamp-area{
-    position:absolute;
-    top:0;
-    left:50%;
-    transform:translateX(-50%);
-    z-index:30;
-}
+    border-radius:22px;
 
-/* WIRE */
-
-.wire{
-    width:4px;
-    height:170px;
-    background:#444;
-    margin:auto;
-}
-
-/* LAMP SHADE */
-
-.lamp{
-    width:130px;
-    height:70px;
-    background:#222;
-    border-radius:0 0 70px 70px;
-    position:relative;
-    margin:auto;
-    box-shadow:0 4px 10px rgba(0,0,0,.7);
-}
-
-/* BULB */
-
-.lamp::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-
-    bottom:8px;
-
-    transform:translateX(-50%);
-
-    width:22px;
-
-    height:22px;
-
-    border-radius:50%;
-
-    background:#444;
-
-    transition:.6s;
-}
-
-/* LIGHT CONE */
-
-.light{
-
-    position:absolute;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    top:68px;
-
-    width:520px;
-
-    height:520px;
-
-    background:radial-gradient(circle,
-    rgba(255,238,160,.45) 0%,
-    rgba(255,224,120,.18) 45%,
-    rgba(255,255,255,0) 75%);
-
-    clip-path:polygon(45% 0%,55% 0%,100% 100%,0% 100%);
-
-    opacity:0;
-
-    transition:1s;
-
-    pointer-events:none;
-}
-
-/* CHAIN */
-
-.chain{
-
-    width:4px;
-
-    height:120px;
-
-    background:#999;
-
-    margin:auto;
-
-    cursor:pointer;
-
-    position:relative;
-
-    transition:.15s;
-}
-
-.chain:hover{
-
-    transform:translateY(6px);
-}
-
-/* RING */
-
-.ring{
-
-    width:22px;
-
-    height:22px;
-
-    border:4px solid #ddd;
-
-    border-radius:50%;
-
-    margin-left:-9px;
-
-    background:none;
-}
-
-/* LOGIN */
-
-.login-box{
-
-    position:relative;
-
-    width:360px;
-
-    padding:40px;
-
-    border-radius:18px;
+    backdrop-filter:blur(18px);
 
     background:rgba(255,255,255,.08);
 
-    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.15);
 
-    text-align:center;
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.45);
 
-    color:#fff;
-
-    z-index:20;
+    color:white;
 
     opacity:0;
 
-    transform:translateY(40px);
+    transform:translateY(30px);
 
     transition:1s;
 }
 
-.login-box h1{
+.login-card.show{
+
+    opacity:1;
+    transform:translateY(0);
+}
+
+.login-card h1{
 
     margin-bottom:10px;
 }
 
-.login-box p{
+.login-card p{
+
+    margin-bottom:30px;
 
     color:#ddd;
-
-    margin-bottom:25px;
 }
 
-.login-box input{
+.input-group{
+
+    margin-bottom:18px;
+}
+
+input{
 
     width:100%;
 
-    padding:14px;
-
-    margin-bottom:16px;
+    padding:15px;
 
     border:none;
 
     outline:none;
 
-    border-radius:10px;
+    border-radius:12px;
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
 
     font-size:15px;
 }
 
-.login-box button{
+input::placeholder{
+
+    color:#ddd;
+}
+
+button{
 
     width:100%;
 
-    padding:14px;
+    padding:15px;
 
     border:none;
 
-    border-radius:10px;
+    border-radius:12px;
 
-    background:#f4c542;
+    background:#ffd76d;
 
-    font-size:16px;
-
-    font-weight:bold;
+    color:#222;
 
     cursor:pointer;
+
+    font-weight:600;
 
     transition:.3s;
 }
 
-.login-box button:hover{
+button:hover{
 
-    transform:scale(1.03);
+    transform:translateY(-2px);
+
+    background:#ffe49a;
 }
 
-/* LIGHT ON */
+/* ========= LIGHT ON ========= */
 
-body.light-on .darkness{
+.room.light-on{
 
-    opacity:.15;
+    background:
+    radial-gradient(circle at top left,
+    #3f3526,
+    #141414 55%,
+    #070707);
 }
 
-body.light-on .lamp::after{
-
-    background:#ffe77a;
-
-    box-shadow:
-    0 0 20px #ffe77a,
-    0 0 60px #ffd34a,
-    0 0 120px #ffd34a;
-}
-
-body.light-on .light{
+.room.light-on .light-glow{
 
     opacity:1;
 }
 
-body.light-on .login-box{
+/* ========= RESPONSIVE ========= */
 
-    opacity:1;
+@media(max-width:900px){
 
-    transform:translateY(0);
+.room{
+
+    flex-direction:column;
+    justify-content:center;
+    gap:30px;
 }
 
-/* RESPONSIVE */
+.lamp-side{
 
-@media(max-width:600px){
-
-.login-box{
-
-    width:90%;
-
-    padding:28px;
+    width:100%;
+    height:auto;
 }
 
-.light{
+.login-side{
 
-    width:360px;
+    width:100%;
+}
 
-    height:420px;
+.login-card{
+
+    width:92%;
+    max-width:420px;
 }
 
 .lamp{
 
-    width:100px;
-
-    height:60px;
+    transform:scale(.82);
 }
 
-.wire{
+.light-glow{
 
-    height:140px;
+    left:50%;
+    transform:translateX(-50%);
 }
-
 }
