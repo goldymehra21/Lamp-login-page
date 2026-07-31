@@ -1,228 +1,260 @@
-/* ========= RESET ========= */
+/*=============================
+  RESET
+==============================*/
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    overflow:hidden;
-    background:#050505;
-}
-
-/* ========= ROOM ========= */
-
-.room{
     width:100%;
     height:100vh;
+    overflow:hidden;
+    background:#202020;
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
     align-items:center;
-    padding:6vw;
-    position:relative;
-    background:
-        radial-gradient(circle at top,#141414,#050505 70%);
 }
 
-/* ========= LIGHT ========= */
+/*=============================
+ CONTAINER
+==============================*/
 
-.light-glow{
+.container{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:120px;
+
+    position:relative;
+
+    background:#222;
+
+    overflow:hidden;
+}
+
+/*=============================
+ LIGHT GLOW
+==============================*/
+
+.light{
 
     position:absolute;
 
-    width:700px;
-    height:700px;
+    left:170px;
+    top:40px;
 
-    left:-60px;
-    top:-120px;
+    width:650px;
+    height:650px;
 
     border-radius:50%;
 
     background:
     radial-gradient(circle,
-    rgba(255,220,150,.75)0%,
-    rgba(255,215,120,.35)25%,
-    rgba(255,200,90,.15)45%,
+    rgba(255,235,170,.65) 0%,
+    rgba(255,230,160,.35) 25%,
+    rgba(255,220,150,.12) 45%,
     transparent 70%);
 
     opacity:0;
 
-    transition:1s;
+    transition:1s ease;
+
     pointer-events:none;
 }
 
-/* ========= LAMP ========= */
+/*=============================
+ LAMP
+==============================*/
 
-.lamp-side{
-    width:40%;
-    height:100%;
+.lamp-area{
+
+    width:260px;
+
     display:flex;
-    align-items:flex-end;
     justify-content:center;
-    position:relative;
+    align-items:flex-end;
 }
 
 .lamp{
+
     position:relative;
-    width:220px;
-    height:500px;
+
+    width:180px;
+
+    height:300px;
 }
 
-/* Shade */
+/* Lamp Shade */
 
-.lamp-head{
+.shade{
 
-    width:170px;
-    height:90px;
+    width:120px;
 
-    background:linear-gradient(#ddd,#888);
+    height:55px;
+
+    background:#f7f7f7;
 
     margin:auto;
 
-    clip-path:polygon(15% 0,85% 0,100% 100%,0 100%);
+    border-radius:70px 70px 15px 15px;
 
-    border-radius:10px;
+    box-shadow:
+    0 0 10px rgba(255,255,255,.25);
 
     position:relative;
-
-    z-index:5;
-
 }
 
 /* Pole */
 
-.lamp-neck{
+.pole{
 
     width:10px;
-    height:240px;
 
-    background:#777;
+    height:150px;
+
+    background:#ededed;
 
     margin:auto;
 }
 
 /* Base */
 
-.lamp-base{
+.base{
 
-    width:150px;
-    height:28px;
+    width:80px;
 
-    background:linear-gradient(#888,#555);
+    height:10px;
+
+    background:#ededed;
+
+    border-radius:20px;
 
     margin:auto;
-
-    border-radius:60px;
 }
 
-/* ========= CORD ========= */
+/*=============================
+ CORD
+==============================*/
 
 .cord{
 
     position:absolute;
 
-    left:118px;
-    top:78px;
+    top:45px;
+
+    left:96px;
 
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
 }
 
-.rope{
+.wire{
 
     width:2px;
-    height:165px;
 
-    background:#d8d8d8;
+    height:95px;
+
+    background:#888;
 }
 
-.knob{
+.ball{
 
-    width:22px;
-    height:22px;
+    width:10px;
 
-    background:#ddd;
+    height:10px;
 
     border-radius:50%;
+
+    background:#d7b08c;
 
     cursor:pointer;
 
     transition:.25s;
 }
 
-.knob:hover{
+.ball:hover{
 
-    transform:scale(1.15);
+    transform:scale(1.3);
 }
 
-/* ========= LOGIN ========= */
-
-.login-side{
-
-    width:45%;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
+/*=============================
+ LOGIN CARD
+==============================*/
 
 .login-card{
 
-    width:380px;
+    width:330px;
 
-    padding:45px;
+    padding:35px;
 
-    border-radius:22px;
-
-    backdrop-filter:blur(18px);
+    border-radius:20px;
 
     background:rgba(255,255,255,.08);
 
-    border:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.08);
 
     box-shadow:
-    0 10px 35px rgba(0,0,0,.45);
+    0 20px 40px rgba(0,0,0,.45);
 
-    color:white;
+    color:#fff;
 
     opacity:0;
 
-    transform:translateY(30px);
+    transform:translateY(20px);
 
-    transition:1s;
+    transition:1s ease;
 }
 
 .login-card.show{
 
     opacity:1;
+
     transform:translateY(0);
 }
 
-.login-card h1{
+.login-card h2{
 
-    margin-bottom:10px;
+    text-align:center;
+
+    margin-bottom:25px;
+
+    font-weight:500;
 }
 
-.login-card p{
-
-    margin-bottom:30px;
-
-    color:#ddd;
-}
-
-.input-group{
+.input-box{
 
     margin-bottom:18px;
 }
 
-input{
+.input-box label{
+
+    display:block;
+
+    margin-bottom:7px;
+
+    font-size:13px;
+
+    color:#ddd;
+}
+
+.input-box input{
 
     width:100%;
 
-    padding:15px;
+    height:45px;
 
     border:none;
 
@@ -230,35 +262,39 @@ input{
 
     border-radius:12px;
 
-    background:rgba(255,255,255,.15);
+    padding:0 15px;
 
-    color:white;
+    background:rgba(255,255,255,.08);
 
-    font-size:15px;
+    color:#fff;
+
+    border:1px solid rgba(255,255,255,.08);
 }
 
-input::placeholder{
+.input-box input::placeholder{
 
-    color:#ddd;
+    color:#bfbfbf;
 }
 
 button{
 
     width:100%;
 
-    padding:15px;
+    height:46px;
+
+    margin-top:10px;
 
     border:none;
 
     border-radius:12px;
 
-    background:#ffd76d;
+    background:#fff;
 
     color:#222;
 
-    cursor:pointer;
-
     font-weight:600;
+
+    cursor:pointer;
 
     transition:.3s;
 }
@@ -267,61 +303,52 @@ button:hover{
 
     transform:translateY(-2px);
 
-    background:#ffe49a;
+    box-shadow:0 5px 15px rgba(255,255,255,.2);
 }
 
-/* ========= LIGHT ON ========= */
+/*=============================
+ LIGHT ON
+==============================*/
 
-.room.light-on{
-
-    background:
-    radial-gradient(circle at top left,
-    #3f3526,
-    #141414 55%,
-    #070707);
-}
-
-.room.light-on .light-glow{
+.container.on .light{
 
     opacity:1;
 }
 
-/* ========= RESPONSIVE ========= */
+/*=============================
+ RESPONSIVE
+==============================*/
 
-@media(max-width:900px){
+@media(max-width:768px){
 
-.room{
+.container{
 
     flex-direction:column;
-    justify-content:center;
-    gap:30px;
+
+    gap:40px;
+
+    padding:20px;
 }
 
-.lamp-side{
+.light{
 
-    width:100%;
-    height:auto;
-}
+    left:50%;
 
-.login-side{
+    transform:translateX(-50%);
 
-    width:100%;
+    top:-60px;
 }
 
 .login-card{
 
-    width:92%;
-    max-width:420px;
+    width:95%;
+
+    max-width:340px;
 }
 
 .lamp{
 
-    transform:scale(.82);
+    transform:scale(.9);
 }
 
-.light-glow{
-
-    left:50%;
-    transform:translateX(-50%);
-}
 }
